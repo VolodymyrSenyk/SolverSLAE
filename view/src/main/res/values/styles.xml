@@ -5,6 +5,18 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionBarTheme">@style/ActionBar.Theme</item>
+    </style>
+
+    <!-- ActionBar theme -->
+    <style name="ActionBar.Theme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:titleTextStyle">@style/ActionBar.Title</item>
+    </style>
+
+    <!-- ActonBar title theme -->
+    <style name="ActionBar.Title" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
     </style>
 
 </resources>
