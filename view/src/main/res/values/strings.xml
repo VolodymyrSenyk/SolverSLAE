@@ -3,22 +3,18 @@
     <string name="app_name">Решение СЛАУ</string>
     
     <!-- Calculator screen -->
-    <string name="method_label">Метод</string>
+    <string name="method_label">Метод:</string>
     <string-array name="methods">
         <item>Гаусса с выбором главного элемента</item>
         <item>Гаусса-Зейделя</item>
     </string-array>
-    <string name="variables_label">Количество переменных</string>
+    <string name="variables_label">Количество переменных:</string>
     <string-array name="variables">
         <item>2</item>
         <item>3</item>
         <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
     </string-array>
-    <string name="equations_label">Количество уравнений</string>
+    <string name="equations_label">Количество уравнений:</string>
     <string-array name="equations">
         <item>2</item>
         <item>3</item>
