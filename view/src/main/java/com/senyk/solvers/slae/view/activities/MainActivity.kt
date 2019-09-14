@@ -16,11 +16,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (navController.currentDestination?.id == R.id.resultsFragment) {
-            navController.popBackStack()
-            navController.navigate(R.id.calculatorScreenFragment)
-        } else {
-            super.onBackPressed()
+        when (navController.currentDestination?.id) {
+            R.id.resultsFragment -> navController.navigate(R.id.calculatorScreenFragment)
+            R.id.calculatorScreenFragment -> finish()
+            else -> super.onBackPressed()
         }
     }
 }
