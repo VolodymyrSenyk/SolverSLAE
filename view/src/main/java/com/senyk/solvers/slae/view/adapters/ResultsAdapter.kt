@@ -1,17 +1,17 @@
 package com.senyk.solvers.slae.view.adapters
 
-import androidx.recyclerview.widget.RecyclerView
+import android.text.Html
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.RecyclerView
 import com.senyk.solvers.slae.R
+import kotlinx.android.synthetic.main.result.view.*
 
-class ResultsAdapter : RecyclerView.Adapter<ResultsAdapter.ResultViewHolder>() {
-    private var items: DoubleArray = DoubleArray(0)
-
-    fun setData(newItems: DoubleArray) {
-        this.items = newItems
-    }
+class ResultsAdapter(private val items: DoubleArray) :
+    RecyclerView.Adapter<ResultsAdapter.ResultViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -21,6 +21,16 @@ class ResultsAdapter : RecyclerView.Adapter<ResultsAdapter.ResultViewHolder>() {
 
     override fun onBindViewHolder(holder: ResultViewHolder, position: Int) {
         val item = this.items[position]
+        val variable = LayoutInflater.from(holder.itemView.context)
+            .inflate(R.layout.result, null)
+        variable.result.text = Html.fromHtml(
+            holder.layout.context.getString(
+                R.string.var_result,
+                position + 1,
+                item
+            )
+        )
+        holder.layout.addView(variable)
     }
 
     override fun getItemCount(): Int {
@@ -28,7 +38,6 @@ class ResultsAdapter : RecyclerView.Adapter<ResultsAdapter.ResultViewHolder>() {
     }
 
     class ResultViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        init {
-        }
+        val layout: LinearLayout = itemView as LinearLayout
     }
 }

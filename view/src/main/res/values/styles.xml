@@ -19,4 +19,14 @@
         <item name="android:textColor">@color/colorPrimaryDark</item>
     </style>
 
+    <!-- Input field -->
+    <style name="InputField" parent="Widget.AppCompat.EditText">
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:maxEms">10</item>
+        <item name="android:maxLength">10</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:minEms">2</item>
+        <item name="android:hint">@string/variable_hint</item>
+    </style>
+
 </resources>

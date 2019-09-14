@@ -14,4 +14,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         navController = findNavController(this, R.id.host_fragment)
     }
+
+    override fun onBackPressed() {
+        if (navController.currentDestination?.id == R.id.resultsFragment) {
+            navController.popBackStack()
+            navController.navigate(R.id.calculatorScreenFragment)
+        } else {
+            super.onBackPressed()
+        }
+    }
 }
