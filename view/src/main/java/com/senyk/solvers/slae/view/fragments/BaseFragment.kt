@@ -1,0 +1,23 @@
+package com.senyk.solvers.slae.view.fragments
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.annotation.LayoutRes
+import androidx.fragment.app.Fragment
+
+abstract class BaseFragment : Fragment() {
+
+    abstract fun initViewModel()
+
+    @LayoutRes
+    abstract fun getLayoutResource(): Int
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? =
+        inflater.inflate(getLayoutResource(), container, false)
+}
