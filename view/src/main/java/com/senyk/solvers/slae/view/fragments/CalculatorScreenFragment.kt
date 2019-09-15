@@ -32,15 +32,9 @@ class CalculatorScreenFragment : Fragment(){
         val layoutManager = LinearLayoutManager(requireActivity().applicationContext)
         dataList.layoutManager = layoutManager
 
-        equations_count.onItemSelectedListener = object : SpinnerSelectListener() {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                model.matrixSizeChanged(equationsCount = equations_count.selectedItem.toString().toInt())
-            }
-        }
-
         variables_count.onItemSelectedListener = object : SpinnerSelectListener() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                model.matrixSizeChanged(variablesCount = variables_count.selectedItem.toString().toInt())
+                model.matrixSizeChanged(variables_count.selectedItem.toString().toInt())
             }
         }
 

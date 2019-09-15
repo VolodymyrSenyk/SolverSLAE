@@ -16,10 +16,10 @@ class CalculatorViewModel : ViewModel() {
         matrix.value = Array(DEFAULT_MATRIX_SIZE) {DoubleArray(DEFAULT_MATRIX_SIZE) {DEFAULT_COEFFICIENT} }
     }
 
-    fun matrixSizeChanged(equationsCount: Int = matrix.value!!.size, variablesCount: Int = matrix.value!![0].size-1) {
+    fun matrixSizeChanged(variablesCount: Int = matrix.value!![0].size-1) {
         var coefficientsCount = variablesCount
         coefficientsCount++
-        matrix.value = Array(equationsCount) { DoubleArray(coefficientsCount) { DEFAULT_COEFFICIENT } }
+        matrix.value = Array(variablesCount) { DoubleArray(coefficientsCount) { DEFAULT_COEFFICIENT } }
     }
 
     fun getInputDataMatrix() : Array<DoubleArray> {
