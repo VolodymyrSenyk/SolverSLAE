@@ -19,13 +19,23 @@
         <item name="android:textColor">@color/colorPrimaryDark</item>
     </style>
 
+    <!-- Label -->
+    <style name="LabelField" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Data output -->
+    <style name="SimpleField" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <!-- Input field -->
     <style name="InputField" parent="Widget.AppCompat.EditText">
         <item name="android:inputType">numberDecimal</item>
-        <item name="android:maxEms">10</item>
-        <item name="android:maxLength">10</item>
+        <item name="android:maxLength">4</item>
         <item name="android:maxLines">1</item>
-        <item name="android:minEms">2</item>
+        <item name="android:ems">2</item>
         <item name="android:hint">@string/variable_hint</item>
     </style>
 
