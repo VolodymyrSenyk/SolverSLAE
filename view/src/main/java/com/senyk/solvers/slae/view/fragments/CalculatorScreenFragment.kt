@@ -1,80 +1,63 @@
 package com.senyk.solvers.slae.view.fragments
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.AdapterView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.senyk.solvers.slae.R
 import com.senyk.solvers.slae.view.adapters.MatrixAdapter
-import com.senyk.solvers.slae.view_model.SolverSLAEViewModel
+import com.senyk.solvers.slae.view.helpers.SpinnerSelectListener
+import com.senyk.solvers.slae.view_model.CalculatorViewModel
 import com.senyk.solvers.slae.view_model.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_calculator_screen.*
 
-class CalculatorScreenFragment : BaseFragment() {
-    private lateinit var model: SolverSLAEViewModel
+class CalculatorScreenFragment : Fragment(){
+    private lateinit var model: CalculatorViewModel
 
-    override fun initViewModel() {
-        model = ViewModelProviders.of(requireActivity(), ViewModelFactory())
-            .get(SolverSLAEViewModel::class.java)
-    }
-
-    override fun getLayoutResource(): Int = R.layout.fragment_calculator_screen
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+        inflater.inflate(R.layout.fragment_calculator_screen, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViewModel()
+        model = ViewModelProviders.of(this, ViewModelFactory()).get(CalculatorViewModel::class.java)
+
         val dataList = matrix
         dataList.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(requireActivity().applicationContext)
         dataList.layoutManager = layoutManager
 
-        model.matrixSize.observe(this, Observer<Pair<Int, Int>> {
-            dataList.adapter = MatrixAdapter(it.first, it.second + 1, model)
-        })
-
-        equations_count.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                return
-            }
-
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View,
-                position: Int,
-                id: Long
-            ) {
-                counterSpinnerClicked()
+        equations_count.onItemSelectedListener = object : SpinnerSelectListener() {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                model.matrixSizeChanged(equationsCount = equations_count.selectedItem.toString().toInt())
             }
         }
 
-        variables_count.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                return
-            }
-
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View,
-                position: Int,
-                id: Long
-            ) {
-                counterSpinnerClicked()
+        variables_count.onItemSelectedListener = object : SpinnerSelectListener() {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                model.matrixSizeChanged(variablesCount = variables_count.selectedItem.toString().toInt())
             }
         }
 
         calculate_button.setOnClickListener {
-            findNavController().navigate(R.id.resultsFragment)
             model.solve(method_spinner.selectedItemPosition)
         }
-    }
 
-    private fun counterSpinnerClicked() {
-        model.matrixSizeChanged(
-            equations_count.selectedItem.toString().toInt(),
-            variables_count.selectedItem.toString().toInt()
-        )
+        model.matrix.observe(this, Observer<Array<DoubleArray>> {
+            dataList.adapter = MatrixAdapter(it, model)
+        })
+
+        model.results.observe(this, Observer<DoubleArray> {
+            val solverData = Bundle()
+            solverData.putString(ResultsFragment.METHOD, method_spinner.selectedItem.toString())
+            solverData.putSerializable(ResultsFragment.INPUT_DATA, model.getInputDataMatrix())
+            solverData.putDoubleArray(ResultsFragment.RESULT_DATA, it)
+            findNavController().navigate(R.id.resultsFragment, solverData)
+        })
     }
 }

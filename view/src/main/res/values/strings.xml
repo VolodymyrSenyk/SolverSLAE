@@ -28,6 +28,10 @@
     <string name="calculate">Рассчитать</string>
 
     <!-- Results screen -->
-    <string name="var_result"><![CDATA[<i><b>X<sub><small>%1$d</small></sub></b>=%2$.4f</i>]]></string>
+    <string name="method">Метод %1$s</string>
+    <string name="input_data">Входные данные</string>
+    <string name="results">Результаты</string>
+    <string name="var_result"><![CDATA[%2$.2f <b><i>X<sub><small>%1$d</small></sub></i></b>]]></string>
+    <string name="result">%1$.4f</string>
 
 </resources>
