@@ -33,7 +33,9 @@ class MatrixAdapter(private val matrix: Array<DoubleArray>, private val model: C
             coefficient.addTextChangedListener(object : CoefficientChangeListener() {
                 override fun afterTextChanged(text: Editable?) {
                     if (text.toString().isNotEmpty()) {
-                        model.coefficientChanged(position, i, text.toString().toDouble())
+                        if (text.toString() != "-" && text.toString() != ".") {
+                            model.coefficientChanged(position, i, text.toString().toDouble())
+                        }
                     } else {
                         model.coefficientChanged(position, i)
                     }

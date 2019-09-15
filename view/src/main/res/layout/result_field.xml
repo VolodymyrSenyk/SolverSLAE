@@ -14,11 +14,12 @@
 
     <EditText
             android:id="@+id/variable_coef"
+            style="@style/InputField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:inputType="numberSigned|numberDecimal"
             android:paddingLeft="@dimen/equation_padding"
-            android:paddingRight="@dimen/equation_padding"
-            style="@style/InputField" />
+            android:paddingRight="@dimen/equation_padding" />
 
 </LinearLayout>

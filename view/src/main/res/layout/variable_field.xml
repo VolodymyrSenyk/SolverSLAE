@@ -7,10 +7,11 @@
 
     <EditText
             android:id="@+id/variable_coef"
+            style="@style/InputField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            style="@style/InputField" />
+            android:inputType="numberSigned|numberDecimal" />
 
     <TextView
             android:id="@+id/variable_label"
