@@ -5,9 +5,12 @@ import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.senyk.solvers.slae.R
+import com.senyk.solvers.slae.view.adapters.ResultsAdapter
 import com.senyk.solvers.slae.view.adapters.ResultsMatrixAdapter
 import kotlinx.android.synthetic.main.fragment_results.*
 import kotlinx.android.synthetic.main.result.view.*
@@ -32,13 +35,11 @@ class ResultsFragment : Fragment() {
         dataList.layoutManager = layoutManager
         matrix.adapter = ResultsMatrixAdapter(solverData.getSerializable(INPUT_DATA) as Array<DoubleArray>)
 
-        val answers = solverData.getDoubleArray(RESULT_DATA)
-        for (i in answers!!.indices) {
-            val variable = LayoutInflater.from(requireActivity().applicationContext).inflate(R.layout.result, null)
-            variable.result.text = Html.fromHtml(requireActivity().applicationContext.getString(
-                R.string.var_result,i + 1, answers[i]))
-            results.addView(variable)
-        }
+        val answersList = results
+        answersList.setHasFixedSize(true)
+        val layoutManagerForResults = LinearLayoutManager(requireActivity().applicationContext)
+        answersList.layoutManager = layoutManagerForResults
+        answersList.adapter = ResultsAdapter(solverData.getDoubleArray(RESULT_DATA) as DoubleArray)
     }
 
     companion object {
