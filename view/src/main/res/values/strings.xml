@@ -31,8 +31,10 @@
     <string name="method">Метод %1$s</string>
     <string name="input_data">Входные данные</string>
     <string name="results">Результаты</string>
+    <string name="checking">Проверка</string>
     <string name="var_result"><![CDATA[%2$.2f <b><i>X<sub><small>%1$d</small></sub></i></b>]]></string>
     <string name="var_answer"><![CDATA[<b><i>X<sub><small>%1$d</small></sub></i></b> = %2$f]]></string>
+    <string name="var_check"><![CDATA[%1$.2f * %2$.2f]]></string>
     <string name="result">%1$.4f</string>
 
 </resources>

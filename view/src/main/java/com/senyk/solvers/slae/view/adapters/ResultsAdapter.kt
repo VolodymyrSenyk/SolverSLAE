@@ -1,7 +1,6 @@
 package com.senyk.solvers.slae.view.adapters
 
 import android.text.Html
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +26,6 @@ class ResultsAdapter(private val results: DoubleArray) :
         val item = this.results[position]
         val variable = LayoutInflater.from(holder.itemView.context).inflate(R.layout.result, null)
         val result = variable.result
-        Log.e("TAG", item.toString())
         result.text =
             Html.fromHtml(holder.layout.context.getString(R.string.var_answer, position + 1, item))
         holder.layout.addView(variable)

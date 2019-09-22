@@ -5,7 +5,7 @@
         android:id="@+id/calculator_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.fragments.CalculatorScreenFragment" >
+        tools:context=".view.fragments.CalculatorScreenFragment">
 
     <TextView
             android:id="@+id/method_label"
@@ -49,7 +49,7 @@
             android:layout_marginLeft="32dp"
             android:layout_marginTop="16dp"
             android:text="@string/variables_label"
-            app:layout_constraintBottom_toTopOf="@+id/matrix"
+            app:layout_constraintBottom_toTopOf="@+id/matrixContainer"
             app:layout_constraintEnd_toStartOf="@+id/variables_count"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,14 +66,14 @@
             android:layout_marginRight="32dp"
             android:layout_marginBottom="24dp"
             android:entries="@array/variables"
-            app:layout_constraintBottom_toTopOf="@+id/matrix"
+            app:layout_constraintBottom_toTopOf="@+id/matrixContainer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/variables_label"
             app:layout_constraintTop_toBottomOf="@+id/method_spinner"
             app:layout_constraintVertical_bias="1.0" />
 
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/matrix"
+    <ScrollView
+            android:id="@+id/matrixContainer"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="24dp"
@@ -82,12 +82,30 @@
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
             android:layout_marginBottom="24dp"
+            android:isScrollContainer="true"
+            android:scrollbarAlwaysDrawHorizontalTrack="true"
             app:layout_constraintBottom_toTopOf="@+id/calculate_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/variables_label"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            android:paddingBottom="10dp">
+
+        <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fadeScrollbars="false">
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/matrix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+        </HorizontalScrollView>
+
+    </ScrollView>
 
     <Button
             android:id="@+id/calculate_button"
@@ -101,6 +119,7 @@
             android:text="@string/calculate"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/matrixContainer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
