@@ -4,38 +4,40 @@ import kotlin.math.abs
 
 class GaussSeidelMethod : Algorithm() {
     override fun solve(matrix: Array<DoubleArray>): DoubleArray {
-        var result = DoubleArray(matrix.size) { 0.0 }
+        val size = matrix.size
+        var previousVariableValues = DoubleArray(size) {0.0}
         while (true) {
-            val currentVariableValues = DoubleArray(matrix.size)
-            for (i in matrix.indices) {
-                currentVariableValues[i] = matrix[i][matrix.size]
-                for (j in matrix.indices) {
+            val currentVariableValues = DoubleArray(size)
+            for (i in 0 until size) {
+                currentVariableValues[i] = matrix[i][size]
+                for (j in 0 until size) {
                     if (i > j) {
                         currentVariableValues[i] -= matrix[i][j] * currentVariableValues[j]
                     }
                     if (i < j) {
-                        currentVariableValues[i] -= matrix[i][j] * result[j]
+                        currentVariableValues[i] -= matrix[i][j] * previousVariableValues[j]
                     }
                 }
                 currentVariableValues[i] /= matrix[i][i]
-            }
-            var error = 0.0
-            for (aMatrix in matrix) {
-                var errorTemp = 0.0
-                for (j in matrix.indices) {
-                    errorTemp += aMatrix[j] * currentVariableValues[j]
+                var error = 0.0
+                for (aMatrix in matrix) {
+                    error += abs(currentVariableValues[i] - previousVariableValues[i])
+                    var errorTemp = 0.0
+                    for (j in 0 until size) {
+                        errorTemp += aMatrix[j] * currentVariableValues[j]
+                    }
+                    error += abs(errorTemp - aMatrix[size])
                 }
-                error += abs(errorTemp - aMatrix[matrix.size])
+                if (error < EPS) {
+                    break
+                }
+                previousVariableValues = currentVariableValues
             }
-            if (error < EPS) {
-                break
-            }
-            result = currentVariableValues
+            return previousVariableValues
         }
-        return result
     }
 
     companion object {
-        const val EPS = 0.05
+        const val EPS = 0.001
     }
 }
