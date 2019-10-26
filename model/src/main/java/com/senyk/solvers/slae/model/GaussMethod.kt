@@ -7,6 +7,10 @@ class GaussMethod : Algorithm() {
 
     override fun getAlgorithmReport(): String = String(reportString)
 
+    override fun isSolvable(matrix: Array<DoubleArray>): String {
+        return "true"
+    }
+
     override fun solve(matrix: Array<DoubleArray>): DoubleArray {
         val size = matrix.size
         val ia = matrix.size
