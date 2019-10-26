@@ -39,8 +39,19 @@ class InputScreenViewModel : ViewModel() {
             GAUSS_SEIDEL_METHOD -> GaussSeidelMethod()
             else -> throw UnsupportedOperationException(NO_SUCH_ALGORITHM)
         }
-        _results.value = solver.solve(matrix.value!!)
+        _results.value = solver.solve(matrixForSending())
         _algorithmReport.value = solver.getAlgorithmReport()
+    }
+
+    private fun matrixForSending(): Array<DoubleArray> {
+        val res =
+            Array(matrix.value!!.size) { DoubleArray(matrix.value!![0].size) { DEFAULT_COEFFICIENT } }
+        for (i in matrix.value!!.indices) {
+            for (j in matrix.value!![i].indices) {
+                res[i][j] = matrix.value!![i][j]
+            }
+        }
+        return res
     }
 
     companion object {

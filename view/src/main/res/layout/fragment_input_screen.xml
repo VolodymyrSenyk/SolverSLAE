@@ -5,7 +5,7 @@
         android:id="@+id/calculator_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.fragments.CalculatorScreenFragment">
+        tools:context=".view.fragments.InputScreenFragment">
 
     <TextView
             android:id="@+id/method_label"
@@ -95,7 +95,6 @@
         <HorizontalScrollView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:fadeScrollbars="false">
 
             <androidx.recyclerview.widget.RecyclerView

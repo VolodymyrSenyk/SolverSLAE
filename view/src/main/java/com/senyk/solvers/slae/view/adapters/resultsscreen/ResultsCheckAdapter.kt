@@ -1,4 +1,4 @@
-package com.senyk.solvers.slae.view.adapters
+package com.senyk.solvers.slae.view.adapters.resultsscreen
 
 import android.text.Html
 import android.view.LayoutInflater
@@ -39,7 +39,7 @@ class ResultsCheckAdapter(coefficients: Array<DoubleArray>, private val roots: D
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultsViewHolder {
         return ResultsViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.equation,
+                R.layout.equation_input,
                 parent,
                 false
             )
