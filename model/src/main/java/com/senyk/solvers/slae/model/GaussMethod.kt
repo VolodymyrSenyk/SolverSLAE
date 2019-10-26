@@ -8,7 +8,7 @@ class GaussMethod : Algorithm() {
     override fun getAlgorithmReport(): String = String(reportString)
 
     override fun isSolvable(matrix: Array<DoubleArray>): String {
-        return "true"
+        return IS_VALID
     }
 
     override fun solve(matrix: Array<DoubleArray>): DoubleArray {
