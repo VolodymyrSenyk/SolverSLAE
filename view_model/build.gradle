@@ -30,4 +30,7 @@ dependencies {
     // Lifecycle
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+    // Report output
+    implementation 'com.github.LucasFsc:Html2Pdf:0.2-beta'
 }
