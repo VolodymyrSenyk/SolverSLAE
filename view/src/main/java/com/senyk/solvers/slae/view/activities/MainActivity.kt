@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         when (navController.currentDestination?.id) {
-            R.id.resultsFragment -> navController.navigate(R.id.calculatorScreenFragment)
-            R.id.calculatorScreenFragment -> finish()
+            R.id.resultsScreenFragment -> navController.navigate(R.id.inputScreenFragment)
+            R.id.inputScreenFragment -> finish()
             else -> super.onBackPressed()
         }
     }

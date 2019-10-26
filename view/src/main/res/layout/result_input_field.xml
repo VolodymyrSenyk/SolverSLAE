@@ -8,18 +8,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingLeft="@dimen/equation_padding"
-            android:paddingRight="@dimen/equation_padding"
+            android:paddingLeft="@dimen/input_field_padding"
+            android:paddingRight="@dimen/input_field_padding"
             android:text="@string/equ" />
 
     <EditText
             android:id="@+id/variable_coef"
-            style="@style/InputField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:maxLength="6"
+            android:maxLines="1"
+            android:hint="@string/variable_hint"
             android:inputType="numberSigned|numberDecimal"
-            android:paddingLeft="@dimen/equation_padding"
-            android:paddingRight="@dimen/equation_padding" />
+            android:paddingLeft="@dimen/input_field_padding"
+            android:paddingRight="@dimen/input_field_padding" />
 
 </LinearLayout>

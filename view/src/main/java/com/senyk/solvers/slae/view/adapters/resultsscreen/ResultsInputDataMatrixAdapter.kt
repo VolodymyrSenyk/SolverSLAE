@@ -1,4 +1,4 @@
-package com.senyk.solvers.slae.view.adapters
+package com.senyk.solvers.slae.view.adapters.resultsscreen
 
 import android.text.Html
 import android.view.LayoutInflater
@@ -9,11 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.senyk.solvers.slae.R
 import kotlinx.android.synthetic.main.result.view.*
 
-class ResultsMatrixAdapter(private val matrix: Array<DoubleArray>) :
-    RecyclerView.Adapter<ResultsMatrixAdapter.ResultsViewHolder>() {
+class ResultsInputDataMatrixAdapter(private val matrix: Array<DoubleArray>) :
+    RecyclerView.Adapter<ResultsInputDataMatrixAdapter.ResultsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultsViewHolder {
-        return ResultsViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.equation, parent, false))
+        return ResultsViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.equation_input, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: ResultsViewHolder, position: Int) {
