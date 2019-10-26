@@ -13,19 +13,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.senyk.solvers.slae.R
 import com.senyk.solvers.slae.view.adapters.MatrixAdapter
 import com.senyk.solvers.slae.view.helpers.SpinnerSelectListener
-import com.senyk.solvers.slae.view_model.CalculatorViewModel
+import com.senyk.solvers.slae.view_model.InputScreenViewModel
 import com.senyk.solvers.slae.view_model.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_calculator_screen.*
 
 class CalculatorScreenFragment : Fragment(){
-    private lateinit var model: CalculatorViewModel
+    private lateinit var model: InputScreenViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.fragment_calculator_screen, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        model = ViewModelProviders.of(this, ViewModelFactory()).get(CalculatorViewModel::class.java)
+        model = ViewModelProviders.of(this, ViewModelFactory()).get(InputScreenViewModel::class.java)
 
         val dataList = matrix
         dataList.setHasFixedSize(true)

@@ -10,10 +10,10 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.senyk.solvers.slae.R
 import com.senyk.solvers.slae.view.helpers.CoefficientChangeListener
-import com.senyk.solvers.slae.view_model.CalculatorViewModel
+import com.senyk.solvers.slae.view_model.InputScreenViewModel
 import kotlinx.android.synthetic.main.variable_field.view.*
 
-class MatrixAdapter(private val matrix: Array<DoubleArray>, private val model: CalculatorViewModel) :
+class MatrixAdapter(private val matrix: Array<DoubleArray>, private val model: InputScreenViewModel) :
     RecyclerView.Adapter<MatrixAdapter.EquationViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EquationViewHolder {
