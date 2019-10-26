@@ -7,6 +7,10 @@ class GaussSeidelMethod : Algorithm() {
 
     override fun getAlgorithmReport(): String = String(reportString)
 
+    override fun isSolvable(matrix: Array<DoubleArray>): String {
+        return "true"
+    }
+
     override fun solve(matrix: Array<DoubleArray>): DoubleArray {
         val eps = 0.0001
         val size = matrix.size
