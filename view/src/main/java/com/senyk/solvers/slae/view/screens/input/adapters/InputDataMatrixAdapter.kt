@@ -28,7 +28,7 @@ class InputDataMatrixAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EquationViewHolder =
         EquationViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.equation_input,
+                R.layout.equation_line,
                 parent,
                 false
             )

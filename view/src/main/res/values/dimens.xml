@@ -9,6 +9,7 @@
 
     <!-- Padding -->
     <dimen name="input_field_padding">8dp</dimen>
+    <dimen name="output_field_padding">8dp</dimen>
     <dimen name="scroll_tracks_padding">12dp</dimen>
 
     <!-- Text output -->
@@ -16,6 +17,9 @@
     <dimen name="simple_field_text_size">18sp</dimen>
     <dimen name="input_field_text_size">18sp</dimen>
     <dimen name="input_field_label_text_size">16sp</dimen>
-    <dimen name="input_field_label_size">24sp</dimen>
+    <dimen name="input_field_label_size">26sp</dimen>
+    <dimen name="output_field_text_size">18sp</dimen>
+    <dimen name="output_field_label_text_size">16sp</dimen>
+    <dimen name="output_field_label_size">26sp</dimen>
 
 </resources>

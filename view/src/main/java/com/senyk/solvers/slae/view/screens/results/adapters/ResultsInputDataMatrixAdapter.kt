@@ -17,7 +17,7 @@ class ResultsInputDataMatrixAdapter(private val matrix: Array<DoubleArray>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultsViewHolder =
         ResultsViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.equation_input, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.equation_line, parent, false)
         )
 
     override fun onBindViewHolder(holder: ResultsViewHolder, position: Int) {

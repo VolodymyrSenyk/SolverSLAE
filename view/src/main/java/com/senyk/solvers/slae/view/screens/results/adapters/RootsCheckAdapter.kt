@@ -7,8 +7,8 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.senyk.solvers.slae.R
 
-class ResultsCheckAdapter(coefficients: Array<DoubleArray>, private val roots: DoubleArray) :
-    RecyclerView.Adapter<ResultsCheckAdapter.ResultsViewHolder>() {
+class RootsCheckAdapter(coefficients: Array<DoubleArray>, private val roots: DoubleArray) :
+    RecyclerView.Adapter<RootsCheckAdapter.ResultsViewHolder>() {
 
     private var data: Array<DoubleArray> = Array(coefficients.size) { DoubleArray(roots.size + 1) }
 
@@ -37,7 +37,7 @@ class ResultsCheckAdapter(coefficients: Array<DoubleArray>, private val roots: D
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultsViewHolder {
         return ResultsViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.equation_input,
+                R.layout.equation_line,
                 parent,
                 false
             )

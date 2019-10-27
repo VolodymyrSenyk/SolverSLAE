@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.senyk.solvers.slae.R
-import com.senyk.solvers.slae.view.screens.results.adapters.ResultsAdapter
-import com.senyk.solvers.slae.view.screens.results.adapters.ResultsCheckAdapter
 import com.senyk.solvers.slae.view.screens.results.adapters.ResultsInputDataMatrixAdapter
+import com.senyk.solvers.slae.view.screens.results.adapters.RootsCheckAdapter
+import com.senyk.solvers.slae.view.screens.results.adapters.RootsOutputAdapter
 import kotlinx.android.synthetic.main.fragment_results_screen.*
 
 class ResultsScreenFragment : Fragment() {
@@ -40,7 +40,7 @@ class ResultsScreenFragment : Fragment() {
         results.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(requireActivity())
-            adapter = ResultsAdapter(
+            adapter = RootsOutputAdapter(
                 solverData.getDoubleArray(RESULT_DATA) as DoubleArray
             )
         }
@@ -48,7 +48,7 @@ class ResultsScreenFragment : Fragment() {
         checking.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(requireActivity())
-            adapter = ResultsCheckAdapter(
+            adapter = RootsCheckAdapter(
                 solverData.getSerializable(INPUT_DATA) as Array<DoubleArray>,
                 solverData.getDoubleArray(RESULT_DATA) as DoubleArray
             )
