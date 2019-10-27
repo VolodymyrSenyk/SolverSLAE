@@ -23,17 +23,12 @@
     <string name="results">Результаты</string>
     <string name="checking">Проверка</string>
 
-    <!-- Input field -->
-    <string name="variable_input_field_label" translatable="false"><![CDATA[<i>X<sub><small>%1$d</small></sub></i>]]></string>
-    <string name="variable_input_field_hint" translatable="false">0</string>
-
     <!-- Linkers -->
     <string name="equ" translatable="false">=</string>
     <string name="sum" translatable="false">+</string>
 
-    <string name="var_result" translatable="false"><![CDATA[%2$.2f <b><i>X<sub><small>%1$d</small></sub></i></b>]]></string>
-    <string name="var_answer" translatable="false"><![CDATA[<b><i>X<sub><small>%1$d</small></sub></i></b> = %2$f]]></string>
-    <string name="var_check" translatable="false"><![CDATA[%1$.2f * %2$.2f]]></string>
-    <string name="result" translatable="false">%1$.4f</string>
+    <!-- Input field -->
+    <string name="variable" translatable="false"><![CDATA[<i>X<sub><small>%1$d</small></sub></i>]]></string>
+    <string name="default_coefficient" translatable="false">0</string>
 
 </resources>

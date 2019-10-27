@@ -64,7 +64,7 @@ class InputDataMatrixAdapter(
         variableInputField.variable_label.text =
             HtmlCompat.fromHtml(
                 holder.layout.context.getString(
-                    R.string.variable_input_field_label,
+                    R.string.variable,
                     variableIndex + 1
                 ), HtmlCompat.FROM_HTML_MODE_LEGACY
             )

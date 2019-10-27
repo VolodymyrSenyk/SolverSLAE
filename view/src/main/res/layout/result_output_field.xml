@@ -5,19 +5,19 @@
 
     <TextView
             android:id="@+id/variable_label"
-            style="@style/SimpleField"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingLeft="@dimen/input_field_padding"
             android:paddingRight="@dimen/input_field_padding"
-            android:text="@string/equ" />
+            android:text="@string/equ"
+            android:textSize="@dimen/input_field_text_size" />
 
-    <EditText
+    <TextView
             android:id="@+id/variable_coef"
-            style="@style/InputField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingRight="@dimen/input_field_padding" />
+            android:paddingRight="@dimen/input_field_padding"
+            android:textSize="@dimen/input_field_text_size" />
 
 </LinearLayout>

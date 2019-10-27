@@ -1,13 +1,11 @@
 package com.senyk.solvers.slae.view.screens.results.adapters
 
-import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.senyk.solvers.slae.R
-import kotlinx.android.synthetic.main.result.view.*
 
 class ResultsCheckAdapter(coefficients: Array<DoubleArray>, private val roots: DoubleArray) :
     RecyclerView.Adapter<ResultsCheckAdapter.ResultsViewHolder>() {
@@ -47,11 +45,11 @@ class ResultsCheckAdapter(coefficients: Array<DoubleArray>, private val roots: D
     }
 
     override fun onBindViewHolder(holder: ResultsViewHolder, position: Int) {
-        val item = this.data[position]
+        /*val item = this.data[position]
         for (i in item.indices) {
             if (i != item.size - 1) {
                 val variable =
-                    LayoutInflater.from(holder.itemView.context).inflate(R.layout.result, null)
+                    LayoutInflater.from(holder.itemView.context).inflate(R.layout.variable_output_field, null)
                         .result
                 variable.text = Html.fromHtml(
                     holder.layout.context.getString(
@@ -70,7 +68,7 @@ class ResultsCheckAdapter(coefficients: Array<DoubleArray>, private val roots: D
                     if (ii != item.size - 1) {
                         val variable =
                             LayoutInflater.from(holder.itemView.context)
-                                .inflate(R.layout.result, null).result
+                                .inflate(R.layout.variable_output_field, null).result
                         variable.text = Html.fromHtml(
                             holder.layout.context.getString(
                                 R.string.result,
@@ -86,7 +84,7 @@ class ResultsCheckAdapter(coefficients: Array<DoubleArray>, private val roots: D
 
                         val resultField =
                             LayoutInflater.from(holder.itemView.context)
-                                .inflate(R.layout.result, null)
+                                .inflate(R.layout.variable_output_field, null)
                         val result =
                             resultField.result
                         result.text =
@@ -95,7 +93,7 @@ class ResultsCheckAdapter(coefficients: Array<DoubleArray>, private val roots: D
                     }
                 }
             }
-        }
+        }*/
     }
 
     override fun getItemCount(): Int {
