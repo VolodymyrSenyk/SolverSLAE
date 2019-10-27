@@ -1,4 +1,4 @@
-package com.senyk.solvers.slae.view.adapters.resultsscreen
+package com.senyk.solvers.slae.view.screens.results.adapters
 
 import android.text.Html
 import android.view.LayoutInflater
@@ -63,7 +63,7 @@ class ResultsCheckAdapter(coefficients: Array<DoubleArray>, private val roots: D
                 holder.layout.addView(variable)
             } else {
                 val asNext =
-                    LayoutInflater.from(holder.itemView.context).inflate(R.layout.as_result, null)
+                    LayoutInflater.from(holder.itemView.context).inflate(R.layout.equ_linker, null)
                 holder.layout.addView(asNext)
 
                 for (ii in item.indices) {
@@ -81,7 +81,7 @@ class ResultsCheckAdapter(coefficients: Array<DoubleArray>, private val roots: D
                     } else {
                         val asResult =
                             LayoutInflater.from(holder.itemView.context)
-                                .inflate(R.layout.as_result, null)
+                                .inflate(R.layout.equ_linker, null)
                         holder.layout.addView(asResult)
 
                         val resultField =

@@ -5,4 +5,5 @@
         android:layout_weight="1"
         android:paddingLeft="@dimen/input_field_padding"
         android:paddingRight="@dimen/input_field_padding"
-        android:text="@string/equ" />
+        android:text="@string/equ"
+        android:textSize="@dimen/input_field_text_size" />

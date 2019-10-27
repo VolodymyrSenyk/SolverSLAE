@@ -1,4 +1,4 @@
-package com.senyk.solvers.slae.view.fragments
+package com.senyk.solvers.slae.view.screens.results.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.senyk.solvers.slae.R
-import com.senyk.solvers.slae.view.adapters.resultsscreen.ResultsAdapter
-import com.senyk.solvers.slae.view.adapters.resultsscreen.ResultsCheckAdapter
-import com.senyk.solvers.slae.view.adapters.resultsscreen.ResultsInputDataMatrixAdapter
+import com.senyk.solvers.slae.view.screens.results.adapters.ResultsAdapter
+import com.senyk.solvers.slae.view.screens.results.adapters.ResultsCheckAdapter
+import com.senyk.solvers.slae.view.screens.results.adapters.ResultsInputDataMatrixAdapter
 import kotlinx.android.synthetic.main.fragment_results_screen.*
 
 class ResultsScreenFragment : Fragment() {
@@ -41,7 +41,9 @@ class ResultsScreenFragment : Fragment() {
         results.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(requireActivity())
-            adapter = ResultsAdapter(solverData.getDoubleArray(RESULT_DATA) as DoubleArray)
+            adapter = ResultsAdapter(
+                solverData.getDoubleArray(RESULT_DATA) as DoubleArray
+            )
         }
 
         checking.apply {

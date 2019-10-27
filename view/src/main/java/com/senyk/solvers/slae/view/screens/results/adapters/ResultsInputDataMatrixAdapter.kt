@@ -1,4 +1,4 @@
-package com.senyk.solvers.slae.view.adapters.resultsscreen
+package com.senyk.solvers.slae.view.screens.results.adapters
 
 import android.text.Html
 import android.view.LayoutInflater

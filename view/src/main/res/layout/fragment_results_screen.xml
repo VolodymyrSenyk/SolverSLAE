@@ -5,7 +5,7 @@
         android:id="@+id/results_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.fragments.ResultsScreenFragment">
+        tools:context=".view.screens.results.fragments.ResultsScreenFragment">
 
     <TextView
             android:id="@+id/method"

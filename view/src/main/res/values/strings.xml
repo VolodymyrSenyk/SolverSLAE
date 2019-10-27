@@ -8,33 +8,32 @@
         <item>Гаусса с выбором главного элемента</item>
         <item>Гаусса-Зейделя</item>
     </string-array>
-    <string name="variables_label">Количество переменных:</string>
+    <string name="variables_count_label">Количество переменных:</string>
     <string-array name="variables">
         <item>2</item>
         <item>3</item>
         <item>4</item>
     </string-array>
-    <string name="equations_label">Количество уравнений:</string>
-    <string-array name="equations">
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-    </string-array>
-    <string name="variable"><![CDATA[<i>X<sub><small>%1$d</small></sub></i>]]></string>
-    <string name="variable_hint">0</string>
-    <string name="equ">=</string>
-    <string name="calculate">Рассчитать</string>
+    <string name="equations_matrix_label">Системы линейных уравнений</string>
+    <string name="calculate_button">Рассчитать</string>
 
     <!-- Results screen -->
     <string name="method">Метод %1$s</string>
     <string name="input_data">Входные данные</string>
     <string name="results">Результаты</string>
     <string name="checking">Проверка</string>
-    <string name="var_result"><![CDATA[%2$.2f <b><i>X<sub><small>%1$d</small></sub></i></b>]]></string>
-    <string name="var_answer"><![CDATA[<b><i>X<sub><small>%1$d</small></sub></i></b> = %2$f]]></string>
-    <string name="var_check"><![CDATA[%1$.2f * %2$.2f]]></string>
-    <string name="result">%1$.4f</string>
+
+    <!-- Input field -->
+    <string name="variable_input_field_label" translatable="false"><![CDATA[<i>X<sub><small>%1$d</small></sub></i>]]></string>
+    <string name="variable_input_field_hint" translatable="false">0</string>
+
+    <!-- Linkers -->
+    <string name="equ" translatable="false">=</string>
+    <string name="sum" translatable="false">+</string>
+
+    <string name="var_result" translatable="false"><![CDATA[%2$.2f <b><i>X<sub><small>%1$d</small></sub></i></b>]]></string>
+    <string name="var_answer" translatable="false"><![CDATA[<b><i>X<sub><small>%1$d</small></sub></i></b> = %2$f]]></string>
+    <string name="var_check" translatable="false"><![CDATA[%1$.2f * %2$.2f]]></string>
+    <string name="result" translatable="false">%1$.4f</string>
 
 </resources>

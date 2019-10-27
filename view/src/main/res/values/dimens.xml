@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Margin -->
+    <dimen name="screen_borders_margin">32dp</dimen>
+    <dimen name="data_blocks_margin">40dp</dimen>
+    <dimen name="label_bottom_margin">16dp</dimen>
+    <dimen name="data_field_label_end_margin">8dp</dimen>
+
+    <!-- Padding -->
     <dimen name="input_field_padding">8dp</dimen>
-    <dimen name="text_size">16sp</dimen>
+    <dimen name="scroll_tracks_padding">12dp</dimen>
+
+    <!-- Text output -->
+    <dimen name="label_field_text_size">20sp</dimen>
+    <dimen name="simple_field_text_size">18sp</dimen>
+    <dimen name="input_field_text_size">18sp</dimen>
+    <dimen name="input_field_label_text_size">16sp</dimen>
+    <dimen name="input_field_label_size">24sp</dimen>
+
 </resources>

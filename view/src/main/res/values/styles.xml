@@ -21,22 +21,22 @@
 
     <!-- Label -->
     <style name="LabelField" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">@dimen/label_field_text_size</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <!-- Data output -->
     <style name="SimpleField" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">@dimen/simple_field_text_size</item>
     </style>
 
     <!-- Input field -->
     <style name="InputField" parent="Widget.AppCompat.EditText">
-        <item name="android:inputType">numberDecimal</item>
-        <item name="android:maxLength">4</item>
+        <item name="android:textSize">@dimen/input_field_text_size</item>
+        <item name="android:maxLength">8</item>
         <item name="android:maxLines">1</item>
-        <item name="android:ems">2</item>
-        <item name="android:hint">@string/variable_hint</item>
+        <item name="android:hint">@string/variable_input_field_hint</item>
+        <item name="android:inputType">numberSigned|numberDecimal</item>
     </style>
 
 </resources>
