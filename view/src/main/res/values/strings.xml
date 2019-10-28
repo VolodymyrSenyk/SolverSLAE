@@ -23,6 +23,8 @@
     <string name="results">Результаты</string>
     <string name="checking">Проверка</string>
     <string name="save_report_menu_item">Сохранить отчёт</string>
+    <string name="permission_not_granted">Для сохранения отчёта приложению нужно разрешение</string>
+    <string name="to_settings">Настройки</string>
 
     <!-- Linkers -->
     <string name="equ" translatable="false">=</string>

@@ -1,7 +1,6 @@
 package com.senyk.solvers.slae.view_model
 
 import android.content.Context
-import android.os.Environment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.senyk.solvers.slae.view_model.helper.SingleEventLiveData
@@ -15,8 +14,10 @@ class ResultsScreenViewModel : ViewModel() {
         get() = _message
 
     fun saveReport(context: Context, report: String) {
-        val fileName = generateReportFileNameByDate()
-        val myFile = File(Environment.getExternalStorageDirectory().toString() + "/SolverSLAE/Reports/" + fileName)
+        val fileName = generateReportFileNameByDate(context)
+        val dir = File(REPORTS_DIRECTORY_PATH)
+        dir.mkdirs()
+        val myFile = File(dir, fileName)
         myFile.createNewFile()
         val converter = Html2Pdf.Companion.Builder()
             .context(context)
@@ -24,18 +25,23 @@ class ResultsScreenViewModel : ViewModel() {
             .file(myFile)
             .build()
         converter.convertToPdf()
-        _message.setValue("Отчёт сохранён в ${myFile.absolutePath}")
+        _message.setValue(context.getString(R.string.report_saved, myFile.absolutePath))
     }
 
-    private fun generateReportFileNameByDate(): String {
+    private fun generateReportFileNameByDate(context: Context): String {
         val date = Calendar.getInstance()
-        return "Report for " +
-                date.get(Calendar.DAY_OF_MONTH) + "." +
-                (date.get(Calendar.MONTH) + 1) + "." +
-                date.get(Calendar.YEAR) + " " +
-                date.get(Calendar.HOUR_OF_DAY) + ":" +
-                date.get(Calendar.MINUTE) +
-                ".pdf"
+        return context.getString(
+            R.string.report_filename,
+            date.get(Calendar.DAY_OF_MONTH),
+            (date.get(Calendar.MONTH) + 1),
+            date.get(Calendar.YEAR),
+            date.get(Calendar.HOUR_OF_DAY),
+            date.get(Calendar.MINUTE)
+        )
+    }
+
+    companion object {
+        const val REPORTS_DIRECTORY_PATH = "storage/emulated/0/SolverSLAE"
     }
 
 }

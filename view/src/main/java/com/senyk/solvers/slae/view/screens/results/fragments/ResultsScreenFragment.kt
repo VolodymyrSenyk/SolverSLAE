@@ -1,12 +1,20 @@
 package com.senyk.solvers.slae.view.screens.results.fragments
 
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.view.*
+import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.senyk.solvers.slae.R
 import com.senyk.solvers.slae.view.screens.results.adapters.ResultsInputDataMatrixAdapter
 import com.senyk.solvers.slae.view.screens.results.adapters.RootsCheckAdapter
@@ -76,9 +84,72 @@ class ResultsScreenFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_save_report) {
-            viewModel.saveReport(requireContext(), arguments?.getString(REPORT_DATA)!!)
+            if (ContextCompat.checkSelfPermission(
+                    requireContext(),
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                requestPermissions(
+                    arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                    PERMISSION_REQUEST
+                )
+            } else {
+                viewModel.saveReport(requireContext(), arguments?.getString(REPORT_DATA)!!)
+            }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == PERMISSION_REQUEST) {
+            permissionsAnalise(permissions, grantResults)
+        }
+    }
+
+    private fun permissionsAnalise(permissions: Array<String>, grantResults: IntArray) {
+        if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            viewModel.saveReport(requireContext(), arguments?.getString(REPORT_DATA)!!)
+        } else if (!ActivityCompat.shouldShowRequestPermissionRationale(
+                requireActivity(),
+                permissions[0]
+            )
+        ) {
+            makeSnackbar().show()
+        } else {
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.permission_not_granted),
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
+
+    private fun makeSnackbar(): Snackbar {
+        val toSettings = View.OnClickListener {
+            val intent = Intent(
+                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                Uri.fromParts("package", requireActivity().packageName, null)
+            )
+            startActivity(intent)
+        }
+        val snackbar = Snackbar.make(
+            checking,
+            getString(R.string.permission_not_granted),
+            SNACKBAR_DURATION
+        ).setAction(R.string.to_settings, toSettings)
+        val textView =
+            snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
+        textView.setTextColor(
+            ContextCompat.getColor(
+                requireContext(),
+                R.color.colorPrimaryDark
+            )
+        )
+        return snackbar
     }
 
     companion object {
@@ -86,5 +157,7 @@ class ResultsScreenFragment : Fragment() {
         const val INPUT_DATA = "input data matrix"
         const val RESULT_DATA = "results"
         const val REPORT_DATA = "report"
+        const val PERMISSION_REQUEST = 1
+        const val SNACKBAR_DURATION = 10000
     }
 }
