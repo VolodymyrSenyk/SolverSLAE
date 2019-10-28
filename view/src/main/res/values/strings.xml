@@ -26,6 +26,7 @@
     <!-- Linkers -->
     <string name="equ" translatable="false">=</string>
     <string name="sum" translatable="false">+</string>
+    <string name="mult" translatable="false">*</string>
 
     <!-- Input field -->
     <string name="variable" translatable="false"><![CDATA[<i>X<sub><small>%1$d</small></sub></i>]]></string>

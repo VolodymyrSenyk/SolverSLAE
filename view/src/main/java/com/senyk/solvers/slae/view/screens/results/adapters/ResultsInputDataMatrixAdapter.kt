@@ -68,15 +68,16 @@ class ResultsInputDataMatrixAdapter(private val matrix: Array<DoubleArray>) :
 
     private fun bindCoefficientView(view: TextView, variableValue: Double) {
         if (variableValue != InputScreenViewModel.DEFAULT_COEFFICIENT) {
-            if ((variableValue * 10 % 10).toInt() == 0) {
-                view.text = SpannableStringBuilder(variableValue.toInt().toString())
-            } else {
-                view.text = SpannableStringBuilder(variableValue.toString())
-            }
+            view.text = SpannableStringBuilder(variableValue.toFormattedString())
         } else {
-            view.text =
-                SpannableStringBuilder(view.context.getString(R.string.default_coefficient))
+            view.text = SpannableStringBuilder(view.context.getString(R.string.default_coefficient))
         }
+    }
+
+    private fun Double.toFormattedString(): String = if ((this * 10).rem(10).toInt() == 0) {
+        this.toInt().toString()
+    } else {
+        this.toString()
     }
 
     override fun getItemCount(): Int = this.matrix.size
