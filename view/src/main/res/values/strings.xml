@@ -22,6 +22,7 @@
     <string name="input_data">Входные данные</string>
     <string name="results">Результаты</string>
     <string name="checking">Проверка</string>
+    <string name="save_report_menu_item">Сохранить отчёт</string>
 
     <!-- Linkers -->
     <string name="equ" translatable="false">=</string>
