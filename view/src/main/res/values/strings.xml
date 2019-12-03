@@ -1,0 +1,38 @@
+<resources>
+    <!-- Labels -->
+    <string name="app_name">Решение СЛАУ</string>
+    
+    <!-- Calculator screen -->
+    <string name="method_label">Метод:</string>
+    <string-array name="methods">
+        <item>Гаусса с выбором главного элемента</item>
+        <item>Гаусса-Зейделя</item>
+    </string-array>
+    <string name="variables_count_label">Количество переменных:</string>
+    <string-array name="variables">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string name="equations_matrix_label">Система линейных уравнений</string>
+    <string name="calculate_button">Рассчитать</string>
+
+    <!-- Results screen -->
+    <string name="method">Метод %1$s</string>
+    <string name="input_data">Входные данные</string>
+    <string name="results">Результаты</string>
+    <string name="checking">Проверка</string>
+    <string name="save_report_menu_item">Сохранить отчёт</string>
+    <string name="permission_not_granted">Для сохранения отчёта приложению нужно разрешение</string>
+    <string name="to_settings">Настройки</string>
+
+    <!-- Linkers -->
+    <string name="equ" translatable="false">=</string>
+    <string name="sum" translatable="false">+</string>
+    <string name="mult" translatable="false">*</string>
+
+    <!-- Input field -->
+    <string name="variable" translatable="false"><![CDATA[<i>X<sub><small>%1$d</small></sub></i>]]></string>
+    <string name="default_coefficient" translatable="false">0</string>
+
+</resources>

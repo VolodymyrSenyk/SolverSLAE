@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_graph"
+        app:startDestination="@id/inputScreenFragment">
+
+    <fragment
+            android:id="@+id/inputScreenFragment"
+            android:name="com.senyk.solvers.slae.view.screens.input.fragments.InputScreenFragment"
+            android:label="fragment_calculator_screen"
+            tools:layout="@layout/fragment_input_screen" />
+    <fragment
+            android:id="@+id/resultsScreenFragment"
+            android:name="com.senyk.solvers.slae.view.screens.results.fragments.ResultsScreenFragment"
+            android:label="fragment_results"
+            tools:layout="@layout/fragment_results_screen" />
+
+</navigation>

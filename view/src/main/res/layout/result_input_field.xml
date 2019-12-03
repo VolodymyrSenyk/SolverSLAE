@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <TextView
+            style="@style/SimpleField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/input_field_padding"
+            android:paddingRight="@dimen/input_field_padding"
+            android:text="@string/equ" />
+
+    <EditText
+            android:id="@+id/variable_coef"
+            style="@style/InputField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/input_field_padding" />
+
+</LinearLayout>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/results_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.screens.results.fragments.ResultsScreenFragment">
+
+    <TextView
+            android:id="@+id/method"
+            style="@style/SimpleField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/results_screen_borders_margin"
+            android:layout_marginTop="@dimen/results_screen_borders_margin"
+            android:layout_marginRight="@dimen/results_screen_borders_margin"
+            android:text="@string/method"
+            app:layout_constraintBottom_toTopOf="@+id/input_data"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+            android:id="@+id/input_data"
+            style="@style/LabelField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/results_screen_borders_margin"
+            android:layout_marginTop="@dimen/data_blocks_margin"
+            android:layout_marginRight="@dimen/results_screen_borders_margin"
+            android:layout_marginBottom="@dimen/label_bottom_margin"
+            android:text="@string/input_data"
+            app:layout_constraintBottom_toTopOf="@+id/matrixContainer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/method" />
+
+    <ScrollView
+            android:id="@+id/matrixContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/results_screen_borders_margin"
+            android:layout_marginRight="@dimen/results_screen_borders_margin"
+            app:layout_constraintBottom_toTopOf="@+id/answers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_data">
+
+        <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fadeScrollbars="false">
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/matrix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+        </HorizontalScrollView>
+    </ScrollView>
+
+    <TextView
+            android:id="@+id/answers"
+            style="@style/LabelField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/results_screen_borders_margin"
+            android:layout_marginTop="@dimen/data_blocks_margin"
+            android:layout_marginRight="@dimen/results_screen_borders_margin"
+            android:layout_marginBottom="@dimen/label_bottom_margin"
+            android:text="@string/results"
+            app:layout_constraintBottom_toTopOf="@+id/results"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/matrixContainer" />
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/results"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/results_screen_borders_margin"
+            android:layout_marginRight="@dimen/results_screen_borders_margin"
+            app:layout_constraintBottom_toTopOf="@+id/checkingAnswers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/answers">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+            android:id="@+id/checkingAnswers"
+            style="@style/LabelField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/results_screen_borders_margin"
+            android:layout_marginTop="@dimen/data_blocks_margin"
+            android:layout_marginRight="@dimen/results_screen_borders_margin"
+            android:layout_marginBottom="@dimen/label_bottom_margin"
+            android:text="@string/checking"
+            app:layout_constraintBottom_toTopOf="@+id/checkAnswersContainer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/results" />
+
+    <ScrollView
+            android:id="@+id/checkAnswersContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/results_screen_borders_margin"
+            android:layout_marginRight="@dimen/results_screen_borders_margin"
+            android:layout_marginBottom="@dimen/results_screen_borders_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/checkingAnswers">
+
+        <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fadeScrollbars="false">
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/checking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+        </HorizontalScrollView>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

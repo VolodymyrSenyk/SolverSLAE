@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Margin -->
+    <dimen name="input_screen_borders_margin">32dp</dimen>
+    <dimen name="results_screen_borders_margin">24dp</dimen>
+    <dimen name="data_blocks_margin">40dp</dimen>
+    <dimen name="label_bottom_margin">16dp</dimen>
+    <dimen name="data_field_label_end_margin">8dp</dimen>
+
+    <!-- Padding -->
+    <dimen name="input_field_padding">8dp</dimen>
+    <dimen name="output_field_padding">8dp</dimen>
+
+    <!-- Text output -->
+    <dimen name="label_field_text_size">20sp</dimen>
+    <dimen name="simple_field_text_size">18sp</dimen>
+    <dimen name="input_field_text_size">18sp</dimen>
+    <dimen name="input_field_label_text_size">16sp</dimen>
+    <dimen name="input_field_label_size">26sp</dimen>
+    <dimen name="output_field_text_size">18sp</dimen>
+    <dimen name="output_field_label_text_size">16sp</dimen>
+    <dimen name="output_field_label_size">26sp</dimen>
+
+</resources>
